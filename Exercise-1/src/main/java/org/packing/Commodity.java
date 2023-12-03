@@ -24,7 +24,7 @@ public class Commodity {
     }
 
     public void setWeight(float weight) {
-        if ((weight > 0) && (weight < 100))
+        if ((weight > 0) && (weight <= 100))
             this.weight = weight;
         else
             throw new OutOfRangeException("Weight");
@@ -36,7 +36,7 @@ public class Commodity {
     }
 
     public void setValue(byte value) {
-        if ((value>0) && (value < 100))
+        if ((value>0) && (value <= 100))
             this.value = value;
         else
             throw new OutOfRangeException("Value");

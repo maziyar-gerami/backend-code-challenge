@@ -5,12 +5,9 @@ import java.util.List;
 
 public class Parsing {
 
-    String input;
-
-
-    public Commodity parseOne(String input){
-        short inputLength = (short) input.length();
-        String inputWithoutParentheses = input.substring(1,inputLength-1);
+    public Commodity parseOneParentheses(String commoditiesSpecs){
+        short inputLength = (short) commoditiesSpecs.length();
+        String inputWithoutParentheses = commoditiesSpecs.substring(1,inputLength-1);
         List<String> separatedList = Arrays.asList(inputWithoutParentheses.split(","));
         byte id = Byte.parseByte(separatedList.get(0));
         float weight = Float.valueOf(separatedList.get(1));
@@ -19,7 +16,7 @@ public class Parsing {
         return new Commodity (id, weight, value);
     }
 
-    public String[] splitByParentheses(String input) {
+    public static String[] splitByParentheses(String input) {
         String inputWithoutSpacing = input.replaceAll("\\s", "");
         return inputWithoutSpacing.split("(?<=\\))|(?=\\()");
     }
