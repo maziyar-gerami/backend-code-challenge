@@ -13,7 +13,7 @@ public class Parsing {
         String inputWithoutParentheses = input.substring(1,inputLength-1);
         List<String> separatedList = Arrays.asList(inputWithoutParentheses.split(","));
         byte id = Byte.parseByte(separatedList.get(0));
-        byte weight = Byte.parseByte(separatedList.get(1));
+        float weight = Float.valueOf(separatedList.get(1));
         String valueWithoutDollarSign = (separatedList.get(2)).substring(1);
         byte value = Byte.parseByte(valueWithoutDollarSign);
         return new Commodity (id, weight, value);
