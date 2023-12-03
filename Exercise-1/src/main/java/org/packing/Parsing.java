@@ -18,4 +18,9 @@ public class Parsing {
         byte value = Byte.parseByte(valueWithoutDollarSign);
         return new Commodity (id, weight, value);
     }
+
+    public String[] splitByParentheses(String input) {
+        String inputWithoutSpacing = input.replaceAll("\\s", "");
+        return inputWithoutSpacing.split("(?<=\\))|(?=\\()");
+    }
 }
