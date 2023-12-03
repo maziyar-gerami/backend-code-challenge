@@ -2,23 +2,21 @@ package org.packing;
 
 import org.exception.OutOfRangeException;
 
+import java.text.NumberFormat;
 import java.util.UUID;
 
 public class Commodity {
-    private UUID id;
+    private byte id;
     private float weight;
     private byte value;
 
     public Commodity() {
     }
 
-    public Commodity(float weight, byte value) {
-        this.weight = weight;
-        this.value = value;
-    }
-
-    public UUID getId() {
-        return id;
+    public Commodity(byte id, float weight, byte value) {
+        this.id = id;
+        setWeight(weight);
+        setValue(value);
     }
 
     public float getWeight() {
@@ -32,8 +30,9 @@ public class Commodity {
             throw new OutOfRangeException("Weight");
     }
 
-    public byte getValue() {
-        return value;
+    public String getValue() {
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        return formatter.format(this.value);
     }
 
     public void setValue(byte value) {
@@ -41,5 +40,15 @@ public class Commodity {
             this.value = value;
         else
             throw new OutOfRangeException("Value");
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) return  true;
+        if (!(obj instanceof Commodity)) return false;
+        Commodity other = (Commodity) obj;
+        return this.id == other.id &&
+                this.value == other.value &&
+                this.weight == other.weight;
     }
 }
