@@ -1,11 +1,16 @@
 package org.packing;
 
+import org.exception.OutOfRangeException;
+
 import java.util.UUID;
 
 public class Commodity {
     private UUID id;
     private float weight;
     private byte value;
+
+    public Commodity() {
+    }
 
     public Commodity(float weight, byte value) {
         this.weight = weight;
@@ -21,7 +26,10 @@ public class Commodity {
     }
 
     public void setWeight(float weight) {
-        this.weight = weight;
+        if ((weight > 0) && (weight < 100))
+            this.weight = weight;
+        else
+            throw new OutOfRangeException("Weight");
     }
 
     public byte getValue() {
@@ -29,6 +37,9 @@ public class Commodity {
     }
 
     public void setValue(byte value) {
-        this.value = value;
+        if ((value>0) && (value < 100))
+            this.value = value;
+        else
+            throw new OutOfRangeException("Value");
     }
 }
