@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.maziyar.services.packing.Product;
@@ -38,5 +39,11 @@ public class ServicesController {
     @GetMapping("/commodities")
     public List<Product> findAll() {
         return repository.findAll();
+    }
+
+    @GetMapping("/commodities/prices/average")
+    public Double avgPrice (@RequestParam(name = "maxWeight") String maxPrice, @RequestParam(name = "minWeight") String minPrice) {
+        System.out.println(repository.findAveragePriceForWeightLessThan(Float.valueOf(minPrice), Float.valueOf(maxPrice)));
+        return repository.findAveragePriceForWeightLessThan(Float.valueOf(minPrice), Float.valueOf(maxPrice));
     }
 }
