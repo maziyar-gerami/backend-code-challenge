@@ -1,6 +1,5 @@
 package com.maziyar.services.packing;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import com.maziyar.exception.OutOfRangeException;
@@ -15,6 +14,9 @@ public class Input {
     public Input(int maxBoxSize, String productsSpecs) {
         setMaxBoxSize(maxBoxSize);
         setproductsSpecs(productsSpecs);
+    }
+
+    public Input() {
     }
 
     public void setMaxBoxSize(int maxBoxSize) {

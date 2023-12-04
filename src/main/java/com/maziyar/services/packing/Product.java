@@ -17,7 +17,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, float weight, int price) {
+    public Product(int id, double weight, int price) {
         this.id = id;
         setWeight(weight);
         setPrice(price);
@@ -31,7 +31,7 @@ public class Product {
         return weight;
     }
 
-    public void setWeight(float weight) {
+    public void setWeight(double weight) {
         validateInRange(weight, "Weight", 0, 100);
         this.weight = weight;
     }
@@ -57,10 +57,5 @@ public class Product {
         if (!(obj instanceof Product)) return false;
         Product other = (Product) obj;
         return id == other.id && price == other.price && Double.compare(weight, other.weight) == 0;
-    }
-
-    @Override
-    public int hashCode() {
-        return 31 * id + Double.hashCode(weight) + 31 * price;
     }
 }
