@@ -3,44 +3,40 @@ package com.maziyar.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.maziyar.packing.Commodity;
-import com.maziyar.packing.Parsing;
+import com.maziyar.services.packing.Commodity;
+import com.maziyar.services.packing.Parsing;
 
-import ch.qos.logback.core.model.Model;
-
-@Controller
-@RequestMapping("/")
+@RestController
 public class ServicesController {
 
-    private Repository repository;
+    private final CommodityRepository repository;
 
     @Autowired
-    public ServicesController(
-            Repository repository) {
+    public ServicesController(CommodityRepository repository) {
         this.repository = repository;
     }
 
-    @RequestMapping(value = "/commodities", method = RequestMethod.POST)
-    public Boolean saveInDB(
-            @RequestBody String input,
-            Model model) {
+    @PostMapping("/commodities")
+    public boolean saveInDB(@RequestBody String input) {
         List<Commodity> commodities = new Parsing().commoditiesToArrays(input);
-        if (commodities != null) 
-            repository.saveAll(commodities);
+        if (commodities != null) {
             try {
                 repository.saveAll(commodities);
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
-                return false;
             }
-
+        }
+        return false;
     }
 
+    @GetMapping("/commodities")
+    public List<Commodity> findAll() {
+        return repository.findAll();
+    }
 }

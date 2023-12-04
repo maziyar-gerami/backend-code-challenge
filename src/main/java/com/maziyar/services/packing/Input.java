@@ -1,4 +1,4 @@
-package com.maziyar.packing;
+package com.maziyar.services.packing;
 
 import com.maziyar.exception.OutOfRangeException;
 

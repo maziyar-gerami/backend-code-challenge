@@ -1,11 +1,16 @@
-package com.maziyar.packing;
+package com.maziyar.services.packing;
 
 
 import java.text.NumberFormat;
 
 import com.maziyar.exception.OutOfRangeException;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Commodity {
+    @Id
     private byte id;
     private float weight;
     private byte value;

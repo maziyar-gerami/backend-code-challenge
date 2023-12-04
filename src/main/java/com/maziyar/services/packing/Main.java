@@ -1,4 +1,4 @@
-package com.maziyar.packing;
+package com.maziyar.services.packing;
 
 public class Main {
     public static void main(String[] args) {
