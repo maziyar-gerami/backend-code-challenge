@@ -12,7 +12,7 @@ public class Main {
         String specs = scanner.nextLine();
         scanner.close();
         Input input = new Input(n, specs);
-        input.listToArrays();
+        input.productsToArrays();
         Knapsack knapsack = new Knapsack(input);
         System.out.println(knapsack.knapsackDP());
         System.out.println(input);
