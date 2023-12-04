@@ -17,5 +17,5 @@ public class Main {
         System.out.println(knapsack.knapsackDP());
         System.out.println(input);
         
-    }
+}
 }

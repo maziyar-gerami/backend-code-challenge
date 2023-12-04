@@ -10,11 +10,11 @@ public class Input {
     private int[] ids;
     private int[] weights;
     private int[] prices;
-    private String commoditiesSpecs;
+    private String productsSpecs;
 
-    public Input(int maxBoxSize, String commoditiesSpecs) {
+    public Input(int maxBoxSize, String productsSpecs) {
         setMaxBoxSize(maxBoxSize);
-        setCommoditiesSpecs(commoditiesSpecs);
+        setproductsSpecs(productsSpecs);
     }
 
     public void setMaxBoxSize(int maxBoxSize) {
@@ -24,17 +24,17 @@ public class Input {
             throw new OutOfRangeException("Box Size");
     }
 
-    public void setCommoditiesSpecs(String commoditiesSpecs) {
-        String[] parsedCommodities = new Parsing().splitByParentheses(commoditiesSpecs);
-        int commoditiesNumber = parsedCommodities.length;
-        if (commoditiesNumber <= 15)
-            this.commoditiesSpecs = commoditiesSpecs;
+    public void setproductsSpecs(String productsSpecs) {
+        String[] parsedproducts = new Parsing().splitByParentheses(productsSpecs);
+        int productsNumber = parsedproducts.length;
+        if (productsNumber <= 15)
+            this.productsSpecs = productsSpecs;
         else
             throw new OutOfRangeException("Max Box Size");
     }
 
     public void productsToArrays() {
-        List<Product> products = new Parsing().commoditiesToArrays(commoditiesSpecs);
+        List<Product> products = new Parsing().parseAllProducts(productsSpecs);
 
         ids = products.stream().mapToInt(Product::getId).toArray();
         weights = products.stream().mapToInt(product -> (int) (product.getWeight() * 100)).toArray();

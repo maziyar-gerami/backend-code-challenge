@@ -1,4 +1,5 @@
 package com.maziyar.services.packing;
+
 import com.maziyar.exception.OutOfRangeException;
 
 import jakarta.persistence.Entity;
@@ -6,7 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="product")
+@Table(name = "product")
 public class Product {
     @Id
     private int id;
@@ -16,14 +17,14 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, float weight, int value) {
+    public Product(int id, float weight, int price) {
         this.id = id;
         setWeight(weight);
-        setPrice(value);
+        setPrice(price);
     }
 
-    public int getId(){
-        return this.id;
+    public int getId() {
+        return id;
     }
 
     public double getWeight() {
@@ -31,30 +32,35 @@ public class Product {
     }
 
     public void setWeight(float weight) {
-        if ((weight > 0) && (weight <= 100))
-            this.weight = weight;
-        else
-            throw new OutOfRangeException("Weight");
+        validateInRange(weight, "Weight", 0, 100);
+        this.weight = weight;
     }
 
     public int getPrice() {
-        return this.price;
+        return price;
     }
 
-    public void setPrice(int value) {
-        if ((value>0) && (value <= 100))
-            this.price = value;
-        else
-            throw new OutOfRangeException("Value");
+    public void setPrice(int price) {
+        validateInRange(price, "Price", 0, 100);
+        this.price = price;
+    }
+
+    private void validateInRange(double value, String name, double minValue, double maxValue) {
+        if (value <= minValue || value > maxValue) {
+            throw new OutOfRangeException(name);
+        }
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == this) return  true;
+        if (this == obj) return true;
         if (!(obj instanceof Product)) return false;
         Product other = (Product) obj;
-        return this.id == other.id &&
-                this.price == other.price &&
-                this.weight == other.weight;
+        return id == other.id && price == other.price && Double.compare(weight, other.weight) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * id + Double.hashCode(weight) + 31 * price;
     }
 }

@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 
 public class Parsing {
 
-    public Product parseOneParentheses(String commoditySpecs) {
-        String[] parts = commoditySpecs.substring(1, commoditySpecs.length() - 1).split(",");
+    public Product parseOneParentheses(String productSpecs) {
+        String[] parts = productSpecs.substring(1, productSpecs.length() - 1).split(",");
         int id = Integer.parseInt(parts[0]);
         float weight = Float.parseFloat(parts[1]);
         int value = Integer.parseInt(parts[2].substring(1));
@@ -18,7 +18,7 @@ public class Parsing {
         return input.replaceAll("\\s", "").split("(?<=\\))|(?=\\()");
     }
 
-    public List<Product> parseAllCommodities(String input) {
+    public List<Product> parseAllProducts(String input) {
         return Arrays.stream(splitByParentheses(input))
                 .map(this::parseOneParentheses)
                 .collect(Collectors.toList());

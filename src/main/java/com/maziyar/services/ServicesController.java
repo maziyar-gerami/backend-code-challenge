@@ -15,19 +15,19 @@ import com.maziyar.services.packing.Parsing;
 @RestController
 public class ServicesController {
 
-    private final CommodityRepository repository;
+    private final ProductRepository repository;
 
     @Autowired
-    public ServicesController(CommodityRepository repository) {
+    public ServicesController(ProductRepository repository) {
         this.repository = repository;
     }
 
-    @PostMapping("/commodities")
+    @PostMapping("/products")
     public boolean saveInDB(@RequestBody String input) {
-        List<Product> commodities = new Parsing().commoditiesToArrays(input);
-        if (commodities != null) {
+        List<Product> products = new Parsing().parseAllProducts(input);
+        if (products != null) {
             try {
-                repository.saveAll(commodities);
+                repository.saveAll(products);
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -36,12 +36,12 @@ public class ServicesController {
         return false;
     }
 
-    @GetMapping("/commodities")
+    @GetMapping("/products")
     public List<Product> findAll() {
         return repository.findAll();
     }
 
-    @GetMapping("/commodities/prices/average")
+    @GetMapping("/products/prices/average")
     public Double avgPrice (@RequestParam(name = "maxWeight") String maxPrice, @RequestParam(name = "minWeight") String minPrice) {
         System.out.println(repository.findAveragePriceForWeightLessThan(Float.valueOf(minPrice), Float.valueOf(maxPrice)));
         return repository.findAveragePriceForWeightLessThan(Float.valueOf(minPrice), Float.valueOf(maxPrice));
