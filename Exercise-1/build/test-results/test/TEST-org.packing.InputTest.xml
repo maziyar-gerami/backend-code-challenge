@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.packing.InputTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-12-03T22:30:42" hostname="Predator" time="0.005">
+  <properties/>
+  <testcase name="setCommoditiesSpecs()" classname="org.packing.InputTest" time="0.003"/>
+  <testcase name="setMaxBoxSize()" classname="org.packing.InputTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
