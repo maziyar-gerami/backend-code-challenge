@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.maziyar.services.packing.Commodity;
+import com.maziyar.services.packing.Product;
 import com.maziyar.services.packing.Parsing;
 
 @RestController
@@ -23,7 +23,7 @@ public class ServicesController {
 
     @PostMapping("/commodities")
     public boolean saveInDB(@RequestBody String input) {
-        List<Commodity> commodities = new Parsing().commoditiesToArrays(input);
+        List<Product> commodities = new Parsing().commoditiesToArrays(input);
         if (commodities != null) {
             try {
                 repository.saveAll(commodities);
@@ -36,7 +36,7 @@ public class ServicesController {
     }
 
     @GetMapping("/commodities")
-    public List<Commodity> findAll() {
+    public List<Product> findAll() {
         return repository.findAll();
     }
 }

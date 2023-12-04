@@ -7,21 +7,23 @@ import com.maziyar.exception.OutOfRangeException;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-public class Commodity {
+@Table(name="products")
+public class Product {
     @Id
-    private byte id;
+    private int id;
     private float weight;
-    private byte value;
+    private int price;
 
-    public Commodity() {
+    public Product() {
     }
 
-    public Commodity(byte id, float weight, byte value) {
+    public Product(int id, float weight, int value) {
         this.id = id;
         setWeight(weight);
-        setValue(value);
+        setPrice(value);
     }
 
     public float getWeight() {
@@ -35,14 +37,14 @@ public class Commodity {
             throw new OutOfRangeException("Weight");
     }
 
-    public String getValue() {
+    public String getPrice() {
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        return formatter.format(this.value);
+        return formatter.format(this.price);
     }
 
-    public void setValue(byte value) {
+    public void setPrice(int value) {
         if ((value>0) && (value <= 100))
-            this.value = value;
+            this.price = value;
         else
             throw new OutOfRangeException("Value");
     }
@@ -50,10 +52,10 @@ public class Commodity {
     @Override
     public boolean equals(Object obj) {
         if (obj == this) return  true;
-        if (!(obj instanceof Commodity)) return false;
-        Commodity other = (Commodity) obj;
+        if (!(obj instanceof Product)) return false;
+        Product other = (Product) obj;
         return this.id == other.id &&
-                this.value == other.value &&
+                this.price == other.price &&
                 this.weight == other.weight;
     }
 }
