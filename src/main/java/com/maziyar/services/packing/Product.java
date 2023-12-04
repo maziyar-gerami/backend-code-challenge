@@ -1,8 +1,4 @@
 package com.maziyar.services.packing;
-
-
-import java.text.NumberFormat;
-
 import com.maziyar.exception.OutOfRangeException;
 
 import jakarta.persistence.Entity;
@@ -14,7 +10,7 @@ import jakarta.persistence.Table;
 public class Product {
     @Id
     private int id;
-    private float weight;
+    private double weight;
     private int price;
 
     public Product() {
@@ -26,7 +22,11 @@ public class Product {
         setPrice(value);
     }
 
-    public float getWeight() {
+    public int getId(){
+        return this.id;
+    }
+
+    public double getWeight() {
         return weight;
     }
 
@@ -37,9 +37,8 @@ public class Product {
             throw new OutOfRangeException("Weight");
     }
 
-    public String getPrice() {
-        NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        return formatter.format(this.price);
+    public int getPrice() {
+        return this.price;
     }
 
     public void setPrice(int value) {

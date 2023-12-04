@@ -31,4 +31,7 @@ public  List<Product> commoditiesToArrays(String input){
             return allCommodities;
 }
 
+
 }
+
+
