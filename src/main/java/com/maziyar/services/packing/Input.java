@@ -7,7 +7,7 @@ import com.maziyar.exception.OutOfRangeException;
 public class Input {
     private int maxBoxSize;
     private int[] ids;
-    private int[] weights;
+    private double[] weights;
     private int[] prices;
     private String productsSpecs;
 
@@ -19,7 +19,7 @@ public class Input {
     public Input() {
     }
 
-    public Input(int[] ids, int[] weights, int[] prices) {
+    public Input(int[] ids, double[] weights, int[] prices) {
         this.ids = ids;
         this.weights = weights;
         this.prices = prices;
@@ -45,7 +45,7 @@ public class Input {
         
 
         ids = products.stream().mapToInt(Product::getId).toArray();
-        weights = products.stream().mapToInt(product -> (int) (product.getWeight() * 100)).toArray();
+        weights = products.stream().mapToDouble(Product::getWeight).toArray();
         prices = products.stream().mapToInt(Product::getPrice).toArray();
 
         return new Input(ids , weights,prices);
@@ -55,7 +55,7 @@ public class Input {
         return this.ids;
     }
 
-    public int[] getWeights() {
+    public double[] getWeights() {
         return this.weights;
     }
 

@@ -17,12 +17,7 @@ public class Main {
         Input input = new Input(n, specs);
         List<Product> products = new Parsing().parseAllProducts(specs);
         input.productsToArrays(products);
-        List<Integer> selectedItems = findOptimalSelection(products, input.getWeights(), input.getPrices(), input.getWeights());
-        System.out.println(selectedItems);
-        // input.productsToArrays();
-        // Knapsack knapsack = new Knapsack(input);
-        // System.out.println(knapsack.knapsackDP());
-        // System.out.println(input);
-        
+        List<Integer> selectedItems = KnapsackAlgorithm.findOptimalSelection(products, input.getWeights(), input.getPrices(), (double) n);
+        System.out.println("Selected item[s]: " + selectedItems);        
 }
 }
