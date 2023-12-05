@@ -19,6 +19,12 @@ public class Input {
     public Input() {
     }
 
+    public Input(int[] ids, int[] weights, int[] prices) {
+        this.ids = ids;
+        this.weights = weights;
+        this.prices = prices;
+    }
+
     public void setMaxBoxSize(int maxBoxSize) {
         if ((maxBoxSize > 0) && (maxBoxSize <= 100))
             this.maxBoxSize = maxBoxSize;
@@ -35,12 +41,14 @@ public class Input {
             throw new OutOfRangeException("Max Box Size");
     }
 
-    public void productsToArrays() {
-        List<Product> products = new Parsing().parseAllProducts(productsSpecs);
+    public Input productsToArrays(List <Product> products) {
+        
 
         ids = products.stream().mapToInt(Product::getId).toArray();
         weights = products.stream().mapToInt(product -> (int) (product.getWeight() * 100)).toArray();
         prices = products.stream().mapToInt(Product::getPrice).toArray();
+
+        return new Input(ids , weights,prices);
     }
 
     public int[] getIds() {
