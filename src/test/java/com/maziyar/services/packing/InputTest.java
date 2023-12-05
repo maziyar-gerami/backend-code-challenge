@@ -23,7 +23,7 @@ public class InputTest {
     void setCommoditiesSpecs() {
         String spec= "(1,15.3,$34)";
         String sixteenSpecs = spec.repeat(16);
-        Assertions.assertThrows(OutOfRangeException.class, ()-> {input.setproductsSpecs(sixteenSpecs);},
+        Assertions.assertThrows(OutOfRangeException.class, ()-> {input.setProductsSpecs(sixteenSpecs);},
                 "When the Maximum number of Specifications is More then 15, an Exception should be raised");
     }
 }

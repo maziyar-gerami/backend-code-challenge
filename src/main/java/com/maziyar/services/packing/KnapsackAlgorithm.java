@@ -9,7 +9,6 @@ public class KnapsackAlgorithm {
         int n = productList.size();
         Product[] productArray = productList.toArray(new Product[n]);
 
-
         // Initialize a 2D array to store the optimal values
         int[][] m = new int[n + 1][(int) maxWeight + 1];
 
