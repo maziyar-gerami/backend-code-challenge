@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "54a5552d-8d6c-48b6-9f73-cc26f5ce56ad",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11099181"
+	},
+	"item": [
+		{
+			"name": "Save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "(1,15.32,$48)(2,15.32,$48)"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/commodities",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"commodities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "commodities",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "(1,15.32,$48)(2,15.32,$48)"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/commodities",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"commodities"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 06:45:53 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "true"
+				},
+				{
+					"name": "commodities",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "(1,15.32,$48)"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/commodities",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"commodities"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Dec 2023 06:45:53 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "true"
+				}
+			]
+		},
+		{
+			"name": "Retrieve ALL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/commodities",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"commodities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Average with bound",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/prices/average?maxWeight=5&minWeight=0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						"prices",
+						"average"
+					],
+					"query": [
+						{
+							"key": "maxWeight",
+							"value": "5"
+						},
+						{
+							"key": "minWeight",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
