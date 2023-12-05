@@ -12,10 +12,10 @@ public class InputTest {
     @Test
     public void setMaxBoxSize(){
 
-        Assertions.assertThrows(OutOfRangeException.class, ()-> {input.setMaxBoxSize((byte) 110);},
+        Assertions.assertThrows(OutOfRangeException.class, ()-> {input.setMaxBoxWeight(110);},
                 "When the Maximum size of a box is more then 10, an Exception should be raised");
 
-        Assertions.assertThrows(OutOfRangeException.class, ()-> {input.setMaxBoxSize((byte) 0);},
+        Assertions.assertThrows(OutOfRangeException.class, ()-> {input.setMaxBoxWeight(0);},
                 "When the Maximum size of a box is 0 or less, an Exception should be raised");
     }
 

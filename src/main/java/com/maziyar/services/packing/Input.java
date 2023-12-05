@@ -5,14 +5,14 @@ import java.util.List;
 import com.maziyar.exception.OutOfRangeException;
 
 public class Input {
-    private int maxBoxSize;
+    private double maxBoxWeight;
     private int[] ids;
     private double[] weights;
     private int[] prices;
     private String productsSpecs;
 
-    public Input(int maxBoxSize, String productsSpecs) {
-        setMaxBoxSize(maxBoxSize);
+    public Input(double maxBoxWeight, String productsSpecs) {
+        setMaxBoxWeight(maxBoxWeight);
         setproductsSpecs(productsSpecs);
     }
 
@@ -25,9 +25,9 @@ public class Input {
         this.prices = prices;
     }
 
-    public void setMaxBoxSize(int maxBoxSize) {
+    public void setMaxBoxWeight(double maxBoxSize) {
         if ((maxBoxSize > 0) && (maxBoxSize <= 100))
-            this.maxBoxSize = maxBoxSize;
+            this.maxBoxWeight = maxBoxSize;
         else
             throw new OutOfRangeException("Box Size");
     }
@@ -63,7 +63,7 @@ public class Input {
         return this.prices;
     }
 
-    public int getMaxBoxSize() {
-        return this.maxBoxSize;
+    public double getMaxBoxWeight() {
+        return this.maxBoxWeight;
     }
 }
