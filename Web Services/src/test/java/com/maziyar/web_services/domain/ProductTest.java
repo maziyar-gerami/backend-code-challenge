@@ -1,4 +1,4 @@
-package com.maziyar.services.packing;
+package com.maziyar.web_services.domain;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
