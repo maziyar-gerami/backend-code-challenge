@@ -1,4 +1,4 @@
-package com.maziyar.web_services.boxing;
+package com.maziyar.web_services.domain;
 
 import com.maziyar.exception.OutOfRangeException;
 

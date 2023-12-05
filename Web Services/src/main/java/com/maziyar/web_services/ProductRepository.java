@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.maziyar.web_services.boxing.Product;
+import com.maziyar.web_services.domain.Product;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {

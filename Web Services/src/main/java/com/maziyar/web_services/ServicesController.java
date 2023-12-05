@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.maziyar.web_services.boxing.Parsing;
-import com.maziyar.web_services.boxing.Product;
+import com.maziyar.web_services.domain.Parsing;
+import com.maziyar.web_services.domain.Product;
 
 @RestController
 public class ServicesController {
