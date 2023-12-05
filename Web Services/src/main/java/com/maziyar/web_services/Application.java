@@ -1,4 +1,4 @@
-package com.maziyar.services;
+package com.maziyar.web_services;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

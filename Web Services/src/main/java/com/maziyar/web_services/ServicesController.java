@@ -1,4 +1,4 @@
-package com.maziyar.services;
+package com.maziyar.web_services;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.maziyar.services.packing.Product;
-import com.maziyar.services.packing.Parsing;
+import com.maziyar.web_services.boxing.Parsing;
+import com.maziyar.web_services.boxing.Product;
 
 @RestController
 public class ServicesController {

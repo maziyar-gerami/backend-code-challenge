@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import com.maziyar.exception.OutOfRangeException;
+import com.maziyar.web_services.boxing.Input;
 
 public class InputTest {
 

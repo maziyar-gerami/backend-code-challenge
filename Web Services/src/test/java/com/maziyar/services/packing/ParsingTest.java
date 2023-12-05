@@ -3,6 +3,9 @@ package com.maziyar.services.packing;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import com.maziyar.web_services.boxing.Parsing;
+import com.maziyar.web_services.boxing.Product;
+
 public class ParsingTest {
     Parsing parsing;
     @Test

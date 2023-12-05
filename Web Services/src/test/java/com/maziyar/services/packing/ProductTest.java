@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import com.maziyar.exception.OutOfRangeException;
+import com.maziyar.web_services.boxing.Product;
 
 public class ProductTest {
     private static Product product;
